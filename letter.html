@@ -267,5 +267,16 @@ Forever Yours Faizz...`;
     <button onclick="toggleMusic()" style="background: #ff4d79; color: white; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer;">
         🎵 Toggle Music
     </button>
+</div>
+
+<script>
+let isPlaying = false;
+const audio = document.getElementById('bg-music');
+
+function toggleMusic() {
+    isPlaying ? audio.pause() : audio.play();
+    isPlaying = !isPlaying;
+}
+</script>
 </body>
 </html>

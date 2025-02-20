@@ -535,6 +535,7 @@ I k i couldn't write everything mai bht kuch bhoolroun hai hi itna Masha Allah ð
 
   document.querySelectorAll(".book").forEach(flipBook);
 </script>
+</script>
 <!-- Add this before closing body tag -->
 <div id="music-player" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
     <audio id="bg-music" loop>
@@ -543,7 +544,17 @@ I k i couldn't write everything mai bht kuch bhoolroun hai hi itna Masha Allah ð
     <button onclick="toggleMusic()" style="background: #ff4d79; color: white; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer;">
         ðŸŽµ Toggle Music
     </button>
- 
+</div>
+
+<script>
+let isPlaying = false;
+const audio = document.getElementById('bg-music');
+
+function toggleMusic() {
+    isPlaying ? audio.pause() : audio.play();
+    isPlaying = !isPlaying;
+}
+</script>
   </body>
 </html>
 
