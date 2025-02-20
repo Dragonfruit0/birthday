@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Timeline of My Life ❤️</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(45deg, #FF1493, #FF69B4, #FFB6C1, #FF1493);
+            background-size: 300% 300%;
+            animation: gradientFlow 5s ease infinite;
+            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .magical-heading {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .heading-main {
+            font-size: 3.5rem;
+            color: #FF0000;
+            text-shadow: 0 0 5px #FF0000, 0 0 10px #FF0000;
+        }
+
+        .heading-subtitle {
+            font-size: 1.8rem;
+            color: #FF69B4;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .timeline-container {
+            width: 100%;
+            padding: 2rem;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .timeline-item {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .timeline-item h3 {
+            color: #FF1493;
+        }
+    </style>
+</head>
+<body>
+    <div class="magical-heading">
+        <h1 class="heading-main">Our Journey of Love 💖</h1>
+        <div class="heading-subtitle">A Story Written in Time, Together Forever</div>
+    </div>
+
+    <div class="timeline-container">
+        <div class="timeline" id="timeline"></div>
+    </div>
+
+    <script>
+        const timelineEvents = [
+    {
+        "title": "January 🌟",
+        "description": "I started my year listening to your voice 🥹💕 and the same year my Ramadan started while talking to you 💞 My Eid started talking to you 🥺🥹🤍✨ Kitne haseen lamhe hai...💞 I really love us ❤ then the days of pre-finals...",
+        "date": ""
+    },
+    {
+        "title": "February 💞",
+        "description": "Where we met for the second time 🥹🤍✨ You buying a pen for the exam in Masqati....💞 And you being my teacher, teaching me 🥹🤍 Completing our EVS practical together 🤍✨ Heading towards...",
+        "date": ""
+    },
+    {
+        "title": "March 🎂",
+        "description": "The beautiful month starting with your birthday, turning 18 😚🤭💕 I remember the rec and reaction while you read the para where you accidentally said I love you 😭🥹💕💕🤭 Then March 9 🥹🥹💞 a para with whole emotions, I really loved it a lot 🥹🥹🤍✨ It was the first time I received so much love from anyone 🥹🥹💞 And I remember the night of the chemistry exam when you slept after telling me to wake you up 🥹🤍✨ The same time of the physics exam when Mamma was admitted to the hospital, but Alhamdulillah, it was all fine soon 😌💞 I remember your struggles of khandan at that moment 😭😭 Sabka badla liyen jaan, fikr not 😭😭",
+        "date": "March 9"
+    },
+    {
+        "title": "April 💍",
+        "description": "It was the time when you sent me the pic Bilal took of you in that pista dress 🥹🥹💕 Where you were decorating home 🤍✨ Then the day....with white plazo and a pic of your pink dress while you were leaving to collect Eidi 🥹🥹🤍✨ The next day, April 11, I proposed to you finally with my whole heart😭😭😭💞💞💞💞💞 The feelings of that day, haayee Allah 😭😭😭💕💕💕💕💕 It was the first time I asked you for marriage 🤭🥹🥹🤍✨ And when you agreed, I was on the 9000th cloud 🤭🤭🥹🥹💞💞💞 Jazakallah Jazakallah for those moments 🥹🥹🤍✨",
+        "date": "April 11"
+    },
+    {
+        "title": "June ✈️",
+        "description": "Then came the time when you got busy packing for your journey, and after the chemistry exam, you flew to Saudi 🥺💞 Those days were really hard for both of us 🥹💞 The cream dress on you was shining on Bakra Eid 🥹🥹🤍✨ It looked so beautiful 💞💞 Masha Allah 🥹💕",
+        "date": ""
+    },
+    {
+        "title": "July 🕋",
+        "description": "Your Umrah and your beautiful duas 🥹🥹💞 With the mehendi wale haath and unknowingly revealing your gorgeous lips 🤭🥹💕 Following the hard days... it all came to an end where you successfully surprised me 😭😭😭😭❤❤",
+        "date": ""
+    },
+    {
+        "title": "August 🎉",
+        "description": "I remember my reaction 😭😭 Like 'null kuch ni mlm' bolk 😭😭😭😭 Yeah, it was August 3 💞💞 Then the days went along 🥹🥹🤍✨ with beautiful nights and days, days starting with you and ending at you 🥹🥹💞💞 Followed by...",
+        "date": "August 3"
+    },
+    {
+        "title": "September 🍂",
+        "description": "The Teacher's Day 🥹🤍✨ The black dress and the most beautiful meet at Masqati on September 6 🥹🥹💕💕 I really loved it a lot 🥹🥹🤍✨ And the pic when you went to a wedding, and I asked you for a pic—the smile on your face was sparkling 🥹🥹🥹💞💞",
+        "date": "September 6"
+    },
+    {
+        "title": "November 💕",
+        "description": "November 14 😭😭😭😭😭💕💕💕💕💕💕💕💕😭💕 Spending an hour with you, walking with you 😭😭😭😭💕💕💕💕💕 You felt me, I felt us 🥹🥹🤍✨ I could never forget those moments 🥹🥹💕 The night of November 17 when you confessed that you accepted me 😭😭😭😭💞💞💞💞💞💞 There are a lot of things I am missing—if you remember some, please tell me 😭😭😭💞💞💞",
+        "date": "November 14, November 17"
+    },
+    {
+        "title": "December 🌹",
+        "description": "Though it was a messy month due to exams and all... it was still a great month 🥹🥹🤍✨ where I received flowers from you and a rose as a gift for my darling 😘 🥹 💕 along with recs 😘🤭💞 Though I made a lot of mistakes in this month... I learned the way to love you 🥺❤",
+        "date": ""
+    }
+]
+;
+
+        const timelineContainer = document.getElementById("timeline");
+
+        timelineEvents.forEach(event => {
+            const item = document.createElement("div");
+            item.className = "timeline-item";
+            item.innerHTML = `<h3>${event.title}</h3><p>${event.description}</p><small>${event.date}</small>`;
+            timelineContainer.appendChild(item);
+        });
+    </script>
+</body>
+</html>
